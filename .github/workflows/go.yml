@@ -1,21 +1,26 @@
 # This workflow will build a golang project
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
 
-name: Build
+name: Build Release
 
-on: workflow_dispatch
+on:
+  release:
+    [created]
 
 jobs:
-
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
         go-version: '1.20'
-
     - name: Build
-      run: make install
+      run: make build
+    - name: Upload Release Asset
+      uses: actions/upload-release-asset@v1
+      with:
+        name: 0gchaind
+        path: ./out/linux/0gchaind
+        release_id: ${{ github.event.release.id }}
