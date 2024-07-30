@@ -19,11 +19,8 @@ jobs:
     - name: Build
       run: make build
     - name: Upload Release Asset
-      uses: actions/upload-release-asset@v1
+      uses: softprops/action-gh-release@v2
       with:
-        asset_name: 0gchaind
-        asset_path: ./out/linux/0gchaind
-        upload_url: ${{ github.event.release.upload_url }}
-        asset_content_type: application/octet-stream
+        files: ./out/linux/0gchaind
       env:
         GITHUB_TOKEN: ${{ secrets.WH_UPLOAD_ASSET }}
