@@ -25,3 +25,5 @@ jobs:
         asset_path: ./out/linux/0gchaind
         upload_url: ${{ github.event.release.upload_url }}
         asset_content_type: application/octet-stream
+      env:
+        GITHUB_TOKEN: ${{ secrets.WH_UPLOAD_ASSET }}
