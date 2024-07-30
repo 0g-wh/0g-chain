@@ -18,9 +18,11 @@ jobs:
         go-version: '1.20'
     - name: Build
       run: make build
+    - name: Rename file
+      run: mv ./out/linux/0gchaind ./out/linux/0gchaind-linux
     - name: Upload Release Asset
       uses: softprops/action-gh-release@v2
       with:
-        files: ./out/linux/0gchaind#0gchaind-linux
+        files: ./out/linux/0gchaind-linux
       env:
         GITHUB_TOKEN: ${{ secrets.WH_UPLOAD_ASSET }}
