@@ -23,6 +23,6 @@ jobs:
     - name: Upload Release Asset
       uses: softprops/action-gh-release@v2
       with:
-        files: ./out/linux/0gchaind-linux
+        files: ./out/linux/0gchaind-linux-${{ github.ref_name }}
       env:
         GITHUB_TOKEN: ${{ secrets.WH_UPLOAD_ASSET }}
