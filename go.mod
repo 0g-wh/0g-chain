@@ -176,9 +176,9 @@ require (
 	github.com/petermattis/goid v0.0.0-20231207134359-e60b3f734c67 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
-	github.com/prometheus/client_golang v1.14.0 // indirect
+	github.com/prometheus/client_golang v1.16.0 // indirect
 	github.com/prometheus/client_model v0.6.1 // indirect
-	github.com/prometheus/common v0.42.0 // indirect
+	github.com/prometheus/common v0.44.0 // indirect
 	github.com/prometheus/procfs v0.13.0 // indirect
 	github.com/prometheus/tsdb v0.7.1 // indirect
 	github.com/rakyll/statik v0.1.7 // indirect
@@ -235,14 +235,18 @@ require (
 )
 
 replace (
+	cosmossdk.io/api => github.com/0glabs/cosmos-sdk/api v0.47.10-0glabs.abci.38.0
+	cosmossdk.io/core => github.com/0glabs/cosmos-sdk/core v0.47.10-0glabs.abci.38.0
+	cosmossdk.io/simapp => github.com/0glabs/cosmos-sdk/simapp v0.47.10-0glabs.abci.38.0
+	cosmossdk.io/tools/rosetta => github.com/0glabs/cosmos-sdk/tools/rosetta v0.47.10-0glabs.abci.38.0
 	// Use the cosmos keyring code
 	github.com/99designs/keyring => github.com/cosmos/keyring v1.2.0
 	// Use cometbft fork of tendermint
-	github.com/cometbft/cometbft => github.com/0glabs/cometbft v0.37.9-0glabs.1
+	github.com/cometbft/cometbft => github.com/0glabs/cometbft v0.37.9-0glabs.1.0.20241108071510-0b4a8e68fb3a
 	github.com/cometbft/cometbft-db => github.com/kava-labs/cometbft-db v0.9.1-kava.2
 	// Use cosmos-sdk fork with backported fix for unsafe-reset-all, staking transfer events, and custom tally handler support
 	// github.com/cosmos/cosmos-sdk => github.com/0glabs/cosmos-sdk v0.46.11-kava.3
-	github.com/cosmos/cosmos-sdk => github.com/0glabs/cosmos-sdk v0.47.10-0glabs.7
+	github.com/cosmos/cosmos-sdk => github.com/0glabs/cosmos-sdk v0.47.10-0glabs.abci.38.0
 	github.com/cosmos/iavl => github.com/kava-labs/iavl v1.2.0-kava.1
 	// See https://github.com/cosmos/cosmos-sdk/pull/13093
 	github.com/dgrijalva/jwt-go => github.com/golang-jwt/jwt/v4 v4.4.2
@@ -250,7 +254,7 @@ replace (
 	// TODO: Tag before release
 	github.com/ethereum/go-ethereum => github.com/evmos/go-ethereum v1.10.26-evmos-rc2
 	// Use ethermint fork that respects min-gas-price with NoBaseFee true and london enabled, and includes eip712 support
-	github.com/evmos/ethermint => github.com/0glabs/ethermint v0.21.0-0g.v3.1.6
+	github.com/evmos/ethermint => github.com/0glabs/ethermint v0.21.0-0g.v3.1.6.0.20241111031616-aad9ddf1c375
 	// See https://github.com/cosmos/cosmos-sdk/pull/10401, https://github.com/cosmos/cosmos-sdk/commit/0592ba6158cd0bf49d894be1cef4faeec59e8320
 	github.com/gin-gonic/gin => github.com/gin-gonic/gin v1.9.0
 	// Downgraded to avoid bugs in following commits which causes "version does not exist" errors

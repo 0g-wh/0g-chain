@@ -345,11 +345,6 @@ func (tApp TestApp) InitializeFromGenesisStatesWithTimeAndChainIDAndHeight(
 		},
 	)
 	tApp.Commit()
-	tApp.BeginBlock(abci.RequestBeginBlock{
-		Header: tmproto.Header{
-			Height: tApp.LastBlockHeight() + 1, Time: genTime, ChainID: chainID,
-		},
-	})
 
 	return tApp
 }
