@@ -901,13 +901,13 @@ func (app *App) RegisterServices(cfg module.Configurator) {
 }
 
 // BeginBlocker contains app specific logic for the BeginBlock abci call.
-func (app *App) BeginBlocker(ctx sdk.Context, req abci.RequestBeginBlock) abci.ResponseBeginBlock {
-	return app.mm.BeginBlock(ctx, req)
+func (app *App) BeginBlocker(ctx sdk.Context) (sdk.BeginBlock, error) {
+	return app.mm.BeginBlock(ctx)
 }
 
 // EndBlocker contains app specific logic for the EndBlock abci call.
-func (app *App) EndBlocker(ctx sdk.Context, req abci.RequestEndBlock) abci.ResponseEndBlock {
-	return app.mm.EndBlock(ctx, req)
+func (app *App) EndBlocker(ctx sdk.Context) (sdk.EndBlock, error) {
+	return app.mm.EndBlock(ctx)
 }
 
 // InitChainer contains app specific logic for the InitChain abci call.

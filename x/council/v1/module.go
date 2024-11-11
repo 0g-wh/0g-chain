@@ -129,13 +129,14 @@ func (am AppModule) RegisterServices(cfg module.Configurator) {
 	types.RegisterQueryServer(cfg.QueryServer(), am.keeper)
 }
 
-func (am AppModule) BeginBlock(ctx sdk.Context, req abci.RequestBeginBlock) {
-	am.keeper.BeginBlock(ctx, req)
+func (am AppModule) BeginBlock(ctx sdk.Context) error {
+	am.keeper.BeginBlock(ctx)
+	return nil
 }
 
-func (am AppModule) EndBlock(ctx sdk.Context, req abci.RequestEndBlock) []abci.ValidatorUpdate {
-	am.keeper.EndBlock(ctx, req)
-	return []abci.ValidatorUpdate{}
+func (am AppModule) EndBlock(ctx sdk.Context) ([]abci.ValidatorUpdate, error) {
+	am.keeper.EndBlock(ctx)
+	return []abci.ValidatorUpdate{}, nil
 }
 
 // InitGenesis performs genesis initialization for the inflation module. It returns

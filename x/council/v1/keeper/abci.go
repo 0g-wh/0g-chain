@@ -3,7 +3,6 @@ package keeper
 import (
 	"sort"
 
-	abci "github.com/cometbft/cometbft/abci/types"
 	sdk "github.com/cosmos/cosmos-sdk/types"
 )
 
@@ -12,7 +11,7 @@ type Ballot struct {
 	content string
 }
 
-func (k *Keeper) BeginBlock(ctx sdk.Context, _ abci.RequestBeginBlock) {
+func (k *Keeper) BeginBlock(ctx sdk.Context) {
 	councilID, err := k.GetCurrentCouncilID(ctx)
 	if err != nil {
 		// TODO: handle the case where councilID is not available
@@ -68,5 +67,5 @@ func (k *Keeper) BeginBlock(ctx sdk.Context, _ abci.RequestBeginBlock) {
 	k.SetCouncil(ctx, council)
 }
 
-func (k *Keeper) EndBlock(ctx sdk.Context, _ abci.RequestEndBlock) {
+func (k *Keeper) EndBlock(ctx sdk.Context) {
 }
